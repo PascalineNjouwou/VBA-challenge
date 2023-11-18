@@ -7,7 +7,7 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = True
-Sub StockMarket()
+Sub StockMarketData()
     
     'constants
     Const COLOR_RED As Integer = 3
@@ -53,7 +53,7 @@ Sub StockMarket()
         ' first row of output
         Table_Row = 2
         
-        ' start values
+        ' starting values
         Greatest_Volume_Value = -1
         Greatest_Increase_Value = -99999
         Greatest_Decrease_Value = 99999
@@ -108,7 +108,7 @@ Sub StockMarket()
                 ws.Cells(Table_Row, 9).Value = Ticker
                 ws.Cells(Table_Row, 10).Value = Yearly_Change_Value
                 
-                'conditional Formating Yearly Change with colors here
+                'conditional Formatting
                 If Yearly_Change_Value >= 0 Then
                     ws.Cells(Table_Row, 10).Interior.ColorIndex = COLOR_GREEN
                     ws.Cells(Table_Row, 11).Interior.ColorIndex = COLOR_GREEN
@@ -137,11 +137,11 @@ Sub StockMarket()
         ws.Range("P3").Value = Greatest_Decrease_Ticker
         ws.Range("Q3").Value = FormatPercent(Greatest_Decrease_Value)
         
-        'tables formatting
+           'tables formatting
         ws.Columns("I:Q").AutoFit
         ws.Columns("I").HorizontalAlignment = xlLeft
         ws.Columns("O:P").HorizontalAlignment = xlLeft
-                 
+        
     Next ws
     
 End Sub
